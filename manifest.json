@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "email-domain-checker",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "description": "Check domain before open your email!",
+  "author": "ianiiaannn",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "tabs",
+    "storage"
+  ]
+}
