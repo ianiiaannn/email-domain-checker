@@ -4,7 +4,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   }
 });
 window.onload = function () {
-  chrome.storage.local.get('spf', function (result) {
-    document.getElementById("spf").innerText = result.spf;
+  chrome.storage.local.get('record', function (result) {
+    console.log(result);
+    result.record.forEach((record) => {
+      let ele = document.createElement('div');
+      if (/spf|dkim|dmarc/i.test(record)) {
+        ele.style = "color: red";
+      }
+      ele.innerText = record;
+      document.body.appendChild(ele);
+    });
   });
 }
